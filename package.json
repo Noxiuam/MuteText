@@ -1,0 +1,56 @@
+{
+  "name": "MuteText",
+  "version": "1.0.0",
+  "description": "A little something for people who are unable to talk when screensharing.",
+  "main": "index.js",
+  "scripts": {
+    "dist": "electron-builder",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noxiuam/MuteText.git"
+  },
+  "author": "Noxiuam",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Noxiuam/MuteText/issues"
+  },
+  "homepage": "https://github.com/Noxiuam/MuteText#readme",
+  "build": {
+    "publish": [
+      {
+        "provider": "generic",
+        "url": ""
+      }
+    ],
+    "appId": "cc.noxiuam.mutetext",
+    "linux": {
+      "category": "Game",
+      "icon": "assets/linux/icon.icns",
+      "artifactName": "${name}.${ext}",
+      "target": "appimage",
+      "desktop": {
+        "MimeType": "x-scheme-handler/mutetext"
+      },
+      "executableArgs": [ " " ]
+    },
+    "win": {
+      "icon": "assets/windows/icon.ico",
+      "target": "nsis"
+    },
+    "nsis": {
+      "artifactName": "${name}-Setup.${ext}",
+      "installerIcon": "assets/windows/icon.ico",
+      "uninstallerIcon": "assets/windows/icon.ico",
+      "installerHeaderIcon": "assets/windows/icon.ico",
+      "uninstallDisplayName": "${productName}",
+      "deleteAppDataOnUninstall": true,
+      "packElevateHelper": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^24.3.0",
+    "electron-builder": "^23.6.0"
+  }
+}
